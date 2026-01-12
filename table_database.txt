@@ -1,0 +1,18 @@
+CREATE TABLE produk (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama_produk VARCHAR(100) NOT NULL,
+    harga INT NOT NULL,
+    stok INT NOT NULL
+);
+
+CREATE TABLE transaksi (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_produk INT,
+    jumlah INT,
+    tanggal_beli TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_produk) REFERENCES produk(id)
+);
+
+INSERT INTO produk (nama_produk, harga, stok) VALUES 
+('Serum Glow', 85000, 50),
+('Face Mask Green Tea', 45000, 100);
